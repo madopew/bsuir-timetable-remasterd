@@ -1,0 +1,102 @@
+:root {
+  --practice-color: #F2DD79;
+  --lecture-color: #67A2D2;
+  --lab-color: #BF4E63;
+}
+
+.Lessons {
+  width: 100%;
+  height: 100%;
+  color: white;
+  overflow-y: auto;
+}
+
+.Lessons-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 1em;
+  padding-bottom: 2em;
+  overflow-y: auto;
+}
+
+.Lessons-lesson {
+  background: #121212;
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 10px;
+}
+
+.lesson-time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 3px solid;
+  padding-right: 1em;
+  margin-right: 1em;
+}
+
+.lesson-start {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.lesson-info {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.lesson-practice .lesson-name {
+  color: var(--practice-color);
+}
+
+.lesson-lab .lesson-name {
+  color: var(--lab-color);
+}
+
+.lesson-lecture .lesson-name {
+  color: var(--lecture-color);
+}
+
+.lesson-practice .lesson-time {
+  border-color: var(--practice-color);
+  color: var(--practice-color);
+}
+
+.lesson-lab .lesson-time {
+  border-color: var(--lab-color);
+  color: var(--lab-color);
+}
+
+.lesson-lecture .lesson-time {
+  border-color: var(--lecture-color);
+  color: var(--lecture-color);
+}
+
+.lesson-name-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lesson-name {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.lesson-subgroup {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.lesson-room {
+  margin-bottom: 1em;
+}

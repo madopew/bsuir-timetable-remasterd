@@ -1,0 +1,64 @@
+.group-picker {
+  color: #fff;
+  background: #121212;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 10px;
+}
+
+.group-picker .at-author-container {
+  width: 100%;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.group-picker .at-author {
+  background: #007aff;
+  padding: 3px 6px;
+  border-radius: 10px;
+}
+
+.group-picker .at-author span {
+  font-weight: 600;
+}
+
+.group-picker h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-left: 20px;
+}
+
+.group-picker .update-button-container {
+  margin-right: 20px;
+  font-size: 1.5rem;
+}
+
+.group-picker label {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-left: 20px;
+}
+
+.group-picker .date-picker-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.group-picker .date-picker {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+}
