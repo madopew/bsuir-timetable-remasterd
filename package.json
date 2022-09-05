@@ -1,6 +1,7 @@
 {
   "name": "bsuir-timetable",
   "version": "0.1.0",
+  "homepage": "bsuir-timetable-remastered",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
