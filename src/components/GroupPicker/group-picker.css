@@ -4,14 +4,14 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  padding-top: 60px;
-  padding-bottom: 10px;
+  padding-top: 65px;
+  padding-bottom: 20px;
 }
 
 .group-picker .at-author-container {
   width: 100%;
   position: absolute;
-  top: 5px;
+  top: 0;
   left: 0;
   display: flex;
   flex-direction: column;
@@ -33,6 +33,7 @@
   font-size: 1.5rem;
   font-weight: 400;
   margin-left: 20px;
+  text-decoration: underline;
 }
 
 .group-picker .update-button-container {

@@ -8,9 +8,6 @@ import useLocalStorage from "./hooks/LocalStorage";
 import GroupPicker from "./components/GroupPicker/GroupPicker";
 import Lessons from "./components/Lessons/Lessons";
 
-const daysOfWeek = ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"];
-const months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
-
 function App() {
     const [dialogState, dialogDispatch] = useReducer(dialogReducer, {
         visible: false,
@@ -30,17 +27,24 @@ function App() {
 
     const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
-    const formatDate = (date: Date): string => {
-        const dayOfWeek = date.getDay();
-        return `${daysOfWeek[dayOfWeek]}, ${date.getDate()} ${months[date.getMonth()]}`;
-    }
-
     const [group, setGroup] = useLocalStorage("timetable-bsuir-group", "951006");
 
     const [timetable, timetableLoading, updateTimetable] = useTimetable({
         group: group,
         onError: onTimetableError
     });
+
+    const dayUp = () => {
+        const newDate = new Date(selectedDate);
+        newDate.setDate(newDate.getDate() + 1);
+        setSelectedDate(newDate);
+    }
+
+    const dayDown = () => {
+        const newDate = new Date(selectedDate);
+        newDate.setDate(newDate.getDate() - 1);
+        setSelectedDate(newDate);
+    }
 
     return (
         <div className="App">
@@ -58,14 +62,17 @@ function App() {
                     setGroup={setGroup}
                     updateTimetable={updateTimetable}
                     onDateChange={date => setSelectedDate(date)}
-                    dateValue={formatDate(selectedDate)}
+                    dateValue={selectedDate}
                 />
             </div>
             <div className="root-main">
                 <Lessons
                     isLoading={timetableLoading}
                     timetable={timetable}
-                    date={selectedDate}/>
+                    date={selectedDate}
+                    dayUp={dayUp}
+                    dayDown={dayDown}
+                />
             </div>
             <div className="root-tabs">
 

@@ -10,9 +10,11 @@ export enum LessonType {
     LECTURE = "lecture",
     PRACTICE = "practice",
     LAB = "lab",
+    UNKNOWN = "unknown"
 }
 
 export interface Timetable {
+    syncGroup: string,
     syncDate: string,
     schedules: Array<TimetableDay | null>
 }
@@ -57,7 +59,7 @@ export default function useTimetable({group, onError}: TimetableInput): Timetabl
             case "ЛР":
                 return LessonType.LAB;
             default:
-                return LessonType.LECTURE;
+                return LessonType.UNKNOWN;
         }
     }
 
@@ -91,6 +93,7 @@ export default function useTimetable({group, onError}: TimetableInput): Timetabl
             .then((response) => response.data)
             .then((json) => {
                 setTimetable({
+                    syncGroup: group,
                     syncDate: json["startDate"],
                     schedules: [
                         convertTimetableDay(json["schedules"]["Воскресенье"]),
@@ -113,20 +116,17 @@ export default function useTimetable({group, onError}: TimetableInput): Timetabl
                         onError("Что-то пошло не так");
                         break;
                 }
+                setTimetable(null);
                 setLoading(false);
             });
     }
 
-    const update = () => {
-        loadTimetable();
-    }
-
     useEffect(() => {
-        // if (timetable === null) {
+        if (timetable === null || timetable.syncGroup !== group) {
             loadTimetable();
-        // }
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [group]);
 
-    return [timetable, loading, update];
+    return [timetable, loading, loadTimetable];
 }
