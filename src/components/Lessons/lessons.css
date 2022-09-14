@@ -8,7 +8,6 @@
   width: 100%;
   height: 100%;
   color: white;
-  overflow-y: auto;
 }
 
 .Lessons-content {
@@ -19,7 +18,6 @@
   align-items: center;
   justify-content: flex-start;
   padding-top: 1em;
-  padding-bottom: 2em;
   overflow-y: auto;
   position: relative;
 }

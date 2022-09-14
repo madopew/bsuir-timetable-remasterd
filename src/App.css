@@ -31,16 +31,15 @@ body {
     width: 100vw;
     height: 100vh;
     background: #000;
-    display: flex;
-    flex-direction: column;
-}
-
-.App .root-group {
-    width: 100%;
+    position: relative;
 }
 
 .App .root-main {
+    height: 90%;
     width: 100%;
-    height: 100%;
-    overflow-y: auto;
+}
+
+.App .root-tabs {
+    height: 10%;
+    width: 100%;
 }

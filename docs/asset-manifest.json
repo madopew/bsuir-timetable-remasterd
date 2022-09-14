@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/bsuir-timetable-remastered/static/css/main.4181a12e.css",
-    "main.js": "/bsuir-timetable-remastered/static/js/main.30ae79f1.js",
+    "main.css": "/bsuir-timetable-remastered/static/css/main.d06908e2.css",
+    "main.js": "/bsuir-timetable-remastered/static/js/main.a17e5576.js",
     "static/js/787.efcfae6d.chunk.js": "/bsuir-timetable-remastered/static/js/787.efcfae6d.chunk.js",
     "index.html": "/bsuir-timetable-remastered/index.html",
-    "main.4181a12e.css.map": "/bsuir-timetable-remastered/static/css/main.4181a12e.css.map",
-    "main.30ae79f1.js.map": "/bsuir-timetable-remastered/static/js/main.30ae79f1.js.map",
+    "main.d06908e2.css.map": "/bsuir-timetable-remastered/static/css/main.d06908e2.css.map",
+    "main.a17e5576.js.map": "/bsuir-timetable-remastered/static/js/main.a17e5576.js.map",
     "787.efcfae6d.chunk.js.map": "/bsuir-timetable-remastered/static/js/787.efcfae6d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4181a12e.css",
-    "static/js/main.30ae79f1.js"
+    "static/css/main.d06908e2.css",
+    "static/js/main.a17e5576.js"
   ]
 }

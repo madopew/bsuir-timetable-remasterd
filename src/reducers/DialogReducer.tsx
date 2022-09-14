@@ -9,7 +9,7 @@ type DialogInfo = { title: string; text: string | null };
 
 type DialogState = { visible: boolean; options: DialogOptions };
 
-type DialogAction =
+export type DialogAction =
     | { type: DialogActionType.openInfo; info: DialogInfo; close: () => void }
     | { type: DialogActionType.hide };
 

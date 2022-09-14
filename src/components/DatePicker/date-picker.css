@@ -1,0 +1,28 @@
+.date-picker-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  color: #fff;
+}
+
+.date-picker-container .update-button-container {
+  margin-right: 20px;
+  font-size: 1.5rem;
+}
+
+.date-picker-container label {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-left: 20px;
+}
+
+.date-picker-container .date-picker {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+}

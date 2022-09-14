@@ -1,0 +1,19 @@
+.LessonsTab {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.LessonsTab-header {
+  background: #121212;
+  width: 100%;
+  padding-top: 65px;
+  padding-bottom: 20px;
+}
+
+.LessonsTab-content {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
