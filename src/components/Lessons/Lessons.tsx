@@ -1,7 +1,13 @@
 import {useEffect, useState} from "react";
 import './lessons.css';
 import Loader from "../Loader/Loader";
-import {getTeacherFullName, Subgroup, Timetable, TimetableLesson} from "../../services/bsuir-service";
+import {
+    getTeacherFullName,
+    getWeekNumberFromSync,
+    Subgroup,
+    Timetable,
+    TimetableLesson
+} from '../../services/bsuir-service'
 
 interface LessonsProps {
     isGroup: boolean,
@@ -105,38 +111,18 @@ function LessonsContent({isGroup, lessons, dayUp, dayDown}: LessonsContentProps)
 }
 
 export default function Lessons({isGroup, isLoading, timetable, date, dayUp, dayDown}: LessonsProps) {
-    const getClosestSameWeekMonday = (fromDate: Date): Date => {
-        const dayOfWeek = fromDate.getDay();
-        const diff = fromDate.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1);
-        const dateCopy = new Date(fromDate);
-        dateCopy.setDate(diff);
-        return dateCopy;
-    }
-
-    const getCurrentWeek = (fromDate: Date, fromTimetable: Timetable): number => {
-        const syncDate = new Date(fromTimetable.syncDate.split(".").reverse().join("-"));
-        const syncMonday = getClosestSameWeekMonday(syncDate);
-        const currentMonday = getClosestSameWeekMonday(fromDate);
-        const diff = currentMonday.getTime() - syncMonday.getTime();
-        const wholeWeeks = Math.floor(diff / (1000 * 60 * 60 * 24 * 7));
-        const weeksDiff = (wholeWeeks + 1) % 4;
-        if (weeksDiff === 0) {
-            return 4;
-        }
-        return weeksDiff;
-    }
-
     const getLessons = (): TimetableLesson[] | null => {
         if (timetable === null) {
             return null;
         }
 
-        const currentWeek = getCurrentWeek(date, timetable);
+        const currentWeek = getWeekNumberFromSync(date, timetable.syncDate, timetable.syncWeek);
         const currentDay = timetable.schedules[date.getDay()];
         if (currentDay === null) {
             return [];
         }
-        return currentDay.lessons.filter(lesson => lesson.weeks.includes(currentWeek));
+        return currentDay.lessons.filter(lesson => lesson.weeks.includes(currentWeek))
+          .filter(lesson => lesson.dateLesson === null || date === new Date(lesson.dateLesson.split(".").reverse().join("-")));
     }
 
     const [lessons, setLessons] = useState<TimetableLesson[] | null | undefined>(undefined);
